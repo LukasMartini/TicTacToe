@@ -3,6 +3,8 @@ from PyQt6.QtGui import QPixmap
 
 class BoardLayout(QWidget):
     def __init__(self):
+
+
         super().__init__()
 
         self.boardAsset = QPixmap("board.png")
