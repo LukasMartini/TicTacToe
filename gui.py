@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import (
     )
 
 from BoardLayout import BoardLayout
+from InputLayout import InputLayout
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,6 +22,7 @@ class MainWindow(QMainWindow):
 
         #Add start-up assets to respective layouts
         self.boardLayout.addWidget(BoardLayout())
+        self.inputLayout.addWidget(InputLayout())
 
         # Add each layout to the parent
         self.parentLayout.addLayout(self.boardLayout)

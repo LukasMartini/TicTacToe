@@ -1,13 +1,12 @@
 from PyQt6.QtWidgets import QLabel, QGridLayout, QWidget
 from PyQt6.QtGui import QPixmap
+import pkg_resources
 
 class BoardLayout(QWidget):
     def __init__(self):
-
-
         super().__init__()
 
-        self.boardAsset = QPixmap("board.png")
+        self.boardAsset = QPixmap(':/assets/board.png') #MAY NEED TO MAKE THIS RELATIVE
         self.board = QLabel()
         self.board.setPixmap(self.boardAsset)
 
