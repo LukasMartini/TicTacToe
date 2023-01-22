@@ -1,6 +1,8 @@
 from PyQt6.QtWidgets import QLabel, QGridLayout, QWidget
 from PyQt6.QtGui import QPixmap
-import pkg_resources
+import assets # NOTE: don't forget that :/<prefix>/<filename in qrc>
+              # To compile the qrc, use pyside6-rcc <qrc filename>.qrc -o <desired python filename>.py
+              # After that, don't forget to change the import: import PySide6 -> import PyQt6
 
 class BoardLayout(QWidget):
     def __init__(self):
