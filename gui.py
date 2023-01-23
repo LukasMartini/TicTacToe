@@ -3,7 +3,10 @@ from PyQt6.QtWidgets import (
     QWidget,
     QMainWindow,
     QVBoxLayout,
+    QHBoxLayout,
     QGridLayout,
+    QLabel,
+    QPushButton
     )
 
 from BoardLayout import BoardLayout
@@ -15,7 +18,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("TicTacToe")
-        self.setGeometry(0,0,350,600)
+        self.setGeometry(0,0,350,550)
 
         # Initialize widgets
         self.parentLayout = QVBoxLayout()
@@ -24,6 +27,7 @@ class MainWindow(QMainWindow):
 
         #Add start-up assets to respective layouts
         self.boardLayout.addWidget(bl)
+
         self.inputLayout.addWidget(il)
 
         # Add each layout to the parent
@@ -36,10 +40,6 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.mainWidget)
         self.show()
 
-        # Set up database
-        db = dbc(':/dbfiles/wc.db')
-        db.initLookUpTable(db.conn)
-        db.closeConnection()
 
 
 """ GLOBALS AND OTHER INITS """
@@ -48,6 +48,20 @@ main = QApplication([])
 
 # Initialize BoardLayout as a global variable and set the main style sheet
 bl = BoardLayout()
+
+# Set up database
+db = dbc(':/dbfiles/wc.db')
+db.initLookUpTable()
+db.initAdjacencyTable()
+
+# Initialize InputLayout as a global variable passing the global BoardLayout
+il = InputLayout(bl, db)
+window = MainWindow()
+
+# Start MainWindow and run
+main.exec()
+
+db.closeConnection()
 
 # Style Sheet is no longer necessary, but kept for reference purposes
 """boardStyleSheet = \"""
@@ -58,9 +72,3 @@ QWidget {
 }
 \"""
 bl.setStyleSheet(boardStyleSheet)"""
-
-# Initialize InputLayout as a global variable passing the global BoardLayout
-il = InputLayout(bl)
-window = MainWindow()
-# Start MainWindow and run
-main.exec()
