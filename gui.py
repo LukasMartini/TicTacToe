@@ -14,6 +14,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("TicTacToe")
+        self.setGeometry(0,0,350,700)
 
         # Initialize widgets
         self.parentLayout = QVBoxLayout()
@@ -21,8 +22,8 @@ class MainWindow(QMainWindow):
         self.inputLayout = QGridLayout()
 
         #Add start-up assets to respective layouts
-        self.boardLayout.addWidget(BoardLayout())
-        self.inputLayout.addWidget(InputLayout())
+        self.boardLayout.addWidget(bl)
+        self.inputLayout.addWidget(il)
 
         # Add each layout to the parent
         self.parentLayout.addLayout(self.boardLayout)
@@ -35,11 +36,19 @@ class MainWindow(QMainWindow):
         self.show()
 
 
-def guiLauncher():
-    main = QApplication([])
-    window = MainWindow()
+main = QApplication([])
 
-    main.exec()
+bl = BoardLayout()
+boardStyleSheet = """
+QWidget {
+    background-image: url(:/assets/board.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+"""
+bl.setStyleSheet(boardStyleSheet)
 
+il = InputLayout(bl)
 
-guiLauncher()
+window = MainWindow()
+main.exec()

@@ -1,8 +1,13 @@
 from PyQt6.QtWidgets import QPushButton, QLabel, QGridLayout, QWidget
 
+from BoardLayout import BoardLayout
+
+
 class InputLayout(QWidget):
-    def __init__(self):
+    def __init__(self, boardLayout):
         super().__init__()
+
+        self.bl = boardLayout
 
         self.layout = QGridLayout()
 
@@ -26,4 +31,9 @@ class InputLayout(QWidget):
         self.layout.addWidget(self.B8, 2, 1)
         self.layout.addWidget(self.B9, 2, 2)
 
+        self.B1.clicked.connect(self.B1Pressed)
+
         self.setLayout(self.layout)
+
+    def B1Pressed(self):
+        self.bl.place00()
