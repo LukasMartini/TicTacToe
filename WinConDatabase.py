@@ -1,12 +1,14 @@
 import sqlite3 as sql
 from sqlite3 import Error
-import sys
+from PyQt6.QtCore import QCoreApplication
+import assets
 
 class WinConDBControl():
     def __init__(self, dbfile):
         self.conn = "God knows I'm trying, and God knows as well as I do that it's not enough."
         try:
-            self.conn = sql.connect("/Users/almostfishy/PycharmProjects/TicTuqToe/dbfiles/WinCon.db")
+            filepath = QCoreApplication.applicationDirPath()
+            self.conn = sql.connect(filepath + "WinCon.db")
         except Error as e:
             print("Database Connection Error: File may be missing.")
             print(e)
