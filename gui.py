@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
 
 from BoardLayout import BoardLayout
 from InputLayout import InputLayout
+from WinConDatabase import WinConDBControl as dbc
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -34,6 +35,11 @@ class MainWindow(QMainWindow):
         self.mainWidget.setLayout(self.parentLayout)
         self.setCentralWidget(self.mainWidget)
         self.show()
+
+        # Set up database
+        db = dbc(':/dbfiles/wc.db')
+        db.initLookUpTable(db.conn)
+        db.closeConnection()
 
 
 """ GLOBALS AND OTHER INITS """

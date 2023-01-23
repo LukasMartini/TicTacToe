@@ -11,7 +11,12 @@ class BoardLayout(QtWidgets.QWidget):
         super().__init__()
 
         # Add in image assets
-        self.boardAsset = QPixmap(':/assets/centre.png')
+        try:
+            self.boardAsset = QPixmap(':/assets/centre.png')
+        except:
+            print("Could not find files, please ensure that you have the assets directory included in the executable.")
+            exit(0)
+
         self.TLeft = QLabel()
         self.TCentre = QLabel()
         self.TRight = QLabel()
@@ -32,8 +37,12 @@ class BoardLayout(QtWidgets.QWidget):
         self.BCentre.setPixmap(self.boardAsset)
         self.BRight.setPixmap(self.boardAsset)
 
-        self.xAsset = QPixmap(':/assets/wX.png')
-        self.oAsset = QPixmap(':/assets/wO.png')
+        try:
+            self.xAsset = QPixmap(':/assets/wX.png')
+            self.oAsset = QPixmap(':/assets/wO.png')
+        except:
+            print("Could not find files, please ensure that you have the assets directory included in the executable.")
+            exit(0)
 
         # Set up grid layout for display
         self.layout = QGridLayout()

@@ -7,4 +7,7 @@
         <file alias="wX.png">assets/gridspaceCentrewX.png</file>
         <file alias="wO.png">assets/gridspaceCentrewO.png</file>
     </qresource>
+    <qresource prefix="dbfiles">
+        <file alias="wc.db">dbfiles/WinCon.db</file>
+    </qresource>
 </RCC>
