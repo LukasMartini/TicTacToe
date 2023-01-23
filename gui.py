@@ -43,7 +43,7 @@ main = QApplication([])
 # Initialize BoardLayout as a global variable and set the main style sheet
 bl = BoardLayout()
 
-# Style Sheet is no longer necessary
+# Style Sheet is no longer necessary, but kept for reference purposes
 """boardStyleSheet = \"""
 QWidget {
     background-image: url(:/assets/board.png);
@@ -55,7 +55,6 @@ bl.setStyleSheet(boardStyleSheet)"""
 
 # Initialize InputLayout as a global variable passing the global BoardLayout
 il = InputLayout(bl)
-
-# Start MainWindow and run
 window = MainWindow()
+# Start MainWindow and run
 main.exec()
