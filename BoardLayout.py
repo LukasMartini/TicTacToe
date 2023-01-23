@@ -51,21 +51,98 @@ class BoardLayout(QtWidgets.QWidget):
     def place00(self, currTurn):
         self.TLeft.setHidden(True)
         if currTurn == 1:
-            x00 = QLabel()
-            x00.setPixmap(self.xAsset)
-            self.layout.addWidget(x00, 0, 0)
-        elif currTurn == 2:
-            o00 = QLabel()
-            o00.setPixmap(self.oAsset)
-            self.layout.addWidget(o00, 0, 0)
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 0, 0)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 0, 0)
 
     def place01(self, currTurn):
         self.TCentre.setHidden(True)
         if currTurn == 1:
-            x01 = QLabel()
-            x01.setPixmap(self.xAsset)
-            self.layout.addWidget(x01, 0, 1)
-        elif currTurn == 2:
-            o01 = QLabel()
-            o01.setPixmap(self.oAsset)
-            self.layout.addWidget(o01, 0, 1)
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 0, 1)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 0, 1)
+
+    def place02(self, currTurn):
+        self.TRight.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 0, 2)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 0, 2)
+
+    def place10(self, currTurn):
+        self.MLeft.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 1, 0)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 1, 0)
+
+    def place11(self, currTurn):
+        self.MCentre.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 1, 1)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 1, 1)
+
+    def place12(self, currTurn):
+        self.MRight.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 1, 2)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 1, 2)
+
+    def place20(self, currTurn):
+        self.BLeft.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 2, 0)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 2, 0)
+
+    def place21(self, currTurn):
+        self.BCentre.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 2, 1)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 2, 1)
+
+    def place22(self, currTurn):
+        self.BRight.setHidden(True)
+        if currTurn == 1:
+            x = QLabel()
+            x.setPixmap(self.xAsset)
+            self.layout.addWidget(x, 2, 2)
+        elif currTurn == 2 or currTurn == 3:
+            o = QLabel()
+            o.setPixmap(self.oAsset)
+            self.layout.addWidget(o, 2, 2)
