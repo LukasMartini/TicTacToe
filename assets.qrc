@@ -3,5 +3,8 @@
         <file alias="board.png">assets/board.png</file>
         <file alias="X.png">assets/X.png</file>
         <file alias="O.png">assets/O.png</file>
+        <file alias="centre.png">assets/gridspaceCentre.png</file>
+        <file alias="wX.png">assets/gridspaceCentrewX.png</file>
+        <file alias="wO.png">assets/gridspaceCentrewO.png</file>
     </qresource>
 </RCC>

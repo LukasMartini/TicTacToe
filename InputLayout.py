@@ -11,6 +11,7 @@ class InputLayout(QWidget):
 
         self.layout = QGridLayout()
 
+        # Add all buttons to layout
         self.B1 = QPushButton()
         self.B2 = QPushButton()
         self.B3 = QPushButton()
@@ -31,9 +32,16 @@ class InputLayout(QWidget):
         self.layout.addWidget(self.B8, 2, 1)
         self.layout.addWidget(self.B9, 2, 2)
 
+        # Connect buttons to events
         self.B1.clicked.connect(self.B1Pressed)
+        self.B2.clicked.connect(self.B2Pressed)
 
+        # Set layout for display
         self.setLayout(self.layout)
 
+    # Define methods for adding stuff to BoardLayout
     def B1Pressed(self):
         self.bl.place00()
+
+    def B2Pressed(self):
+        self.bl.place01()

@@ -10,16 +10,50 @@ class BoardLayout(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.boardAsset = QPixmap(':/assets/board.png')
-        self.board = QLabel()
-        self.board.setPixmap(self.boardAsset)
+        # Add in image assets
+        self.boardAsset = QPixmap(':/assets/centre.png')
+        self.TLeft = QLabel()
+        self.TCentre = QLabel()
+        self.TRight = QLabel()
+        self.MLeft = QLabel()
+        self.MCentre = QLabel()
+        self.MRight = QLabel()
+        self.BLeft = QLabel()
+        self.BCentre = QLabel()
+        self.BRight = QLabel()
 
-        self.xAsset = QPixmap(':/assets/X.png')
-        self.x = QLabel()
-        self.x.setPixmap(self.xAsset)
+        self.TLeft.setPixmap(self.boardAsset)
+        self.TCentre.setPixmap(self.boardAsset)
+        self.TRight.setPixmap(self.boardAsset)
+        self.MLeft.setPixmap(self.boardAsset)
+        self.MCentre.setPixmap(self.boardAsset)
+        self.MRight.setPixmap(self.boardAsset)
+        self.BLeft.setPixmap(self.boardAsset)
+        self.BCentre.setPixmap(self.boardAsset)
+        self.BRight.setPixmap(self.boardAsset)
 
+        self.xAsset = QPixmap(':/assets/wX.png')
+        self.oAsset = QPixmap(':/assets/wO.png')
+
+        # Set up grid layout for display
         self.layout = QGridLayout()
+        self.layout.addWidget(self.TLeft, 0, 0)
+        self.layout.addWidget(self.TCentre, 0, 1)
+        self.layout.addWidget(self.TRight, 0, 2)
+        self.layout.addWidget(self.MLeft, 1, 0)
+        self.layout.addWidget(self.MCentre, 1, 1)
+        self.layout.addWidget(self.MRight, 1, 2)
+        self.layout.addWidget(self.BLeft, 2, 0)
+        self.layout.addWidget(self.BCentre, 2, 1)
+        self.layout.addWidget(self.BRight, 2, 2)
         self.setLayout(self.layout)
 
     def place00(self):
-        self.layout.addWidget(self.x, 0, 0)
+        self.x00 = QLabel()
+        self.x00.setPixmap(self.xAsset)
+        self.layout.addWidget(self.x00, 0, 0)
+
+    def place01(self):
+        self.x01 = QLabel()
+        self.x01.setPixmap(self.xAsset)
+        self.layout.addWidget(self.x01, 0, 1)

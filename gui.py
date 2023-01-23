@@ -36,19 +36,26 @@ class MainWindow(QMainWindow):
         self.show()
 
 
+""" GLOBALS AND OTHER INITS """
+# Initialize main application
 main = QApplication([])
 
+# Initialize BoardLayout as a global variable and set the main style sheet
 bl = BoardLayout()
-boardStyleSheet = """
+
+# Style Sheet is no longer necessary
+"""boardStyleSheet = \"""
 QWidget {
     background-image: url(:/assets/board.png);
     background-repeat: no-repeat;
     background-position: center;
 }
-"""
-bl.setStyleSheet(boardStyleSheet)
+\"""
+bl.setStyleSheet(boardStyleSheet)"""
 
+# Initialize InputLayout as a global variable passing the global BoardLayout
 il = InputLayout(bl)
 
+# Start MainWindow and run
 window = MainWindow()
 main.exec()
