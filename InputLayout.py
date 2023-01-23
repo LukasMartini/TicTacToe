@@ -58,7 +58,7 @@ class InputLayout(QWidget):
 
         # Add status label
         self.playerLabel = QLabel()
-        self.playerLabel.setText("Still Playing...")
+        self.playerLabel.setText("Player " + str(self.currTurn) + "'s Turn...")
         self.bottomLayout.addWidget(self.playerLabel)
 
         # Set layout for display
@@ -68,7 +68,8 @@ class InputLayout(QWidget):
 
     # Run on end-state to require a reset.
     def lockBoard(self, ifWon):
-        if ifWon == -1:
+        if ifWon == -1: # If no one's won, don't do anything.
+            self.currTurn = self.flipTurn(self.currTurn)
             return 0
         self.B00.setEnabled(False)
         self.B01.setEnabled(False)
@@ -87,8 +88,10 @@ class InputLayout(QWidget):
     # Just a method to cut down on lines
     def flipTurn(self, turn):
         if turn == 1:
+            self.playerLabel.setText("Player 2's Turn...")
             return 2
         if turn == 2:
+            self.playerLabel.setText("Player 1's Turn...")
             return 1
 
     # Define methods for adding stuff to BoardLayout
@@ -98,7 +101,6 @@ class InputLayout(QWidget):
         self.db.updateValue(0, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 0)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
 
     def B01Pressed(self):
@@ -107,7 +109,6 @@ class InputLayout(QWidget):
         self.db.updateValue(1, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 1)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B02Pressed(self):
         self.bl.place02(self.currTurn)
@@ -115,7 +116,6 @@ class InputLayout(QWidget):
         self.db.updateValue(2, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 2)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B10Pressed(self):
         self.bl.place10(self.currTurn)
@@ -123,7 +123,6 @@ class InputLayout(QWidget):
         self.db.updateValue(10, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 10)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B11Pressed(self):
         self.bl.place11(self.currTurn)
@@ -131,7 +130,6 @@ class InputLayout(QWidget):
         self.db.updateValue(11, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 11)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B12Pressed(self):
         self.bl.place12(self.currTurn)
@@ -139,7 +137,6 @@ class InputLayout(QWidget):
         self.db.updateValue(12, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 12)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B20Pressed(self):
         self.bl.place20(self.currTurn)
@@ -147,7 +144,6 @@ class InputLayout(QWidget):
         self.db.updateValue(20, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 20)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B21Pressed(self):
         self.bl.place21(self.currTurn)
@@ -155,7 +151,6 @@ class InputLayout(QWidget):
         self.db.updateValue(21, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 21)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
 
     def B22Pressed(self):
         self.bl.place22(self.currTurn)
@@ -163,4 +158,3 @@ class InputLayout(QWidget):
         self.db.updateValue(22, self.currTurn)
         ifWon = self.db.checkWin(self.currTurn, 22)
         self.lockBoard(ifWon)
-        self.currTurn = self.flipTurn(self.currTurn)
