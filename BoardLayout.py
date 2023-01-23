@@ -48,12 +48,24 @@ class BoardLayout(QtWidgets.QWidget):
         self.layout.addWidget(self.BRight, 2, 2)
         self.setLayout(self.layout)
 
-    def place00(self):
-        self.x00 = QLabel()
-        self.x00.setPixmap(self.xAsset)
-        self.layout.addWidget(self.x00, 0, 0)
+    def place00(self, currTurn):
+        self.TLeft.setHidden(True)
+        if currTurn == 1:
+            x00 = QLabel()
+            x00.setPixmap(self.xAsset)
+            self.layout.addWidget(x00, 0, 0)
+        elif currTurn == 2:
+            o00 = QLabel()
+            o00.setPixmap(self.oAsset)
+            self.layout.addWidget(o00, 0, 0)
 
-    def place01(self):
-        self.x01 = QLabel()
-        self.x01.setPixmap(self.xAsset)
-        self.layout.addWidget(self.x01, 0, 1)
+    def place01(self, currTurn):
+        self.TCentre.setHidden(True)
+        if currTurn == 1:
+            x01 = QLabel()
+            x01.setPixmap(self.xAsset)
+            self.layout.addWidget(x01, 0, 1)
+        elif currTurn == 2:
+            o01 = QLabel()
+            o01.setPixmap(self.oAsset)
+            self.layout.addWidget(o01, 0, 1)

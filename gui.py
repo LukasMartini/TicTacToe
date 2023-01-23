@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("TicTacToe")
-        self.setGeometry(0,0,350,700)
+        self.setGeometry(0,0,350,600)
 
         # Initialize widgets
         self.parentLayout = QVBoxLayout()
