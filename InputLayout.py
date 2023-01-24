@@ -71,6 +71,7 @@ class InputLayout(QWidget):
         if ifWon == -1: # If no one's won, don't do anything.
             self.currTurn = self.flipTurn(self.currTurn)
             return 0
+        # Otherwise, lock all buttons
         self.B00.setEnabled(False)
         self.B01.setEnabled(False)
         self.B02.setEnabled(False)
@@ -80,6 +81,7 @@ class InputLayout(QWidget):
         self.B20.setEnabled(False)
         self.B21.setEnabled(False)
         self.B22.setEnabled(False)
+        # These if statements are reliant on values passed ultimately from WinConDatabase
         if ifWon == -2:
             self.playerLabel.setText("It's a Tie!")
         else:
@@ -96,11 +98,11 @@ class InputLayout(QWidget):
 
     # Define methods for adding stuff to BoardLayout
     def B00Pressed(self):
-        self.bl.place00(self.currTurn)
-        self.B00.setEnabled(False)
-        self.db.updateValue(0, self.currTurn)
-        ifWon = self.db.checkWin(self.currTurn, 0)
-        self.lockBoard(ifWon)
+        self.bl.place00(self.currTurn) # Add the appropriate asset to the board
+        self.B00.setEnabled(False) # Lock the button to prevent being pressed again
+        self.db.updateValue(0, self.currTurn) # Change the currentStatus value of this section in the database
+        ifWon = self.db.checkWin(self.currTurn, 0) # Check if the current player has met the conditions for a win
+        self.lockBoard(ifWon) # Pass of the value to lock the board if necessary
 
 
     def B01Pressed(self):
