@@ -84,6 +84,7 @@ class WinConDBControl():
 
             # Brute force check to see if there is a win
             if sec_id == 0:
+                # TODO: these can be replaced with fullData indexes, which will make this much cleaner.
                 checkData.append(curs.execute("SELECT currStatus FROM columnOne WHERE sec_id = ?", (1,)).fetchall()[0][0])
                 checkData.append(curs.execute("SELECT currStatus FROM columnTwo WHERE sec_id = ?", (2,)).fetchall()[0][0])
                 checkData.append(curs.execute("SELECT currStatus FROM columnZero WHERE sec_id = ?", (10,)).fetchall()[0][0])
