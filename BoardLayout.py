@@ -16,6 +16,7 @@ class BoardLayout(QtWidgets.QWidget):
             print("Could not find files, please ensure that you have the assets directory included in the executable.")
             exit(0)
 
+        # Creates labels to add pixmaps to
         self.TLeft = QLabel()
         self.TCentre = QLabel()
         self.TRight = QLabel()
@@ -25,7 +26,8 @@ class BoardLayout(QtWidgets.QWidget):
         self.BLeft = QLabel()
         self.BCentre = QLabel()
         self.BRight = QLabel()
-
+        
+        # Adds the pixmaps
         self.TLeft.setPixmap(self.boardAsset)
         self.TCentre.setPixmap(self.boardAsset)
         self.TRight.setPixmap(self.boardAsset)
@@ -36,6 +38,7 @@ class BoardLayout(QtWidgets.QWidget):
         self.BCentre.setPixmap(self.boardAsset)
         self.BRight.setPixmap(self.boardAsset)
 
+        # Try to load additional assets
         try:
             self.xAsset = QPixmap(':/assets/wX.png')
             self.oAsset = QPixmap(':/assets/wO.png')
@@ -55,14 +58,15 @@ class BoardLayout(QtWidgets.QWidget):
         self.layout.addWidget(self.BCentre, 2, 1)
         self.layout.addWidget(self.BRight, 2, 2)
         self.setLayout(self.layout)
-
+        
+    # Functions called from InputLayout that replace the images as required
     def place00(self, currTurn):
-        self.TLeft.setHidden(True)
-        if currTurn == 1:
+        self.TLeft.setHidden(True) # Hides the board section, as the new asset has the necessary parts to avoid change in the board's appearance
+        if currTurn == 1: # If it's player 1's turn, use the x asset
             x = QLabel()
             x.setPixmap(self.xAsset)
             self.layout.addWidget(x, 0, 0)
-        elif currTurn == 2 or currTurn == 3:
+        elif currTurn == 2 or currTurn == 3: # Otherwise, use the y asset. Note that player 3 is intended to be for a bot player, but that hasn't been implemented yet.
             o = QLabel()
             o.setPixmap(self.oAsset)
             self.layout.addWidget(o, 0, 0)
