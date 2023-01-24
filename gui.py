@@ -16,7 +16,7 @@ from WinConDatabase import WinConDBControl as dbc
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
+       
         self.setWindowTitle("TicTacToe")
         self.setGeometry(0,0,350,550)
 
@@ -61,6 +61,7 @@ window = MainWindow()
 # Start MainWindow and run
 main.exec()
 
+# Close connection to database when closed.
 db.closeConnection()
 
 # Style Sheet is no longer necessary, but kept for reference purposes
