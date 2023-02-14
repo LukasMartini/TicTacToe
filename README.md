@@ -1,5 +1,5 @@
 # TicTuqToe
-This is a repository containing all of the source files used in a version of Tic Tac Toe made with PyQt6 for an application to Tuq.
+This is a repository containing all of the source files used in a version of Tic Tac Toe made with PyQt6 and SQL.
 
 Dependencies:
 - PyQt6 (Note that PyQt5 probably will not be able to run this, despite how similar they are.)
