@@ -52,7 +52,6 @@ bl = BoardLayout()
 # Set up database
 db = dbc(':/dbfiles/wc.db')
 db.initLookUpTable()
-db.initAdjacencyTable()
 
 # Initialize InputLayout as a global variable passing the global BoardLayout
 il = InputLayout(bl, db)
